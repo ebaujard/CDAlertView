@@ -204,7 +204,9 @@ open class CDAlertView: UIView {
     public var circleFillColor: UIColor? = nil
 
     public var popupWidth: CGFloat = 255.0
-
+    
+    public var popupHeight: CGFloat = 430.0
+    
     public typealias CDAlertAnimationBlock = ((_ center: inout CGPoint, _ transform: inout CGAffineTransform, _ alpha: inout CGFloat) -> Void)?
 
     fileprivate var popupCenterYPositionBeforeKeyboard: CGFloat?
@@ -528,7 +530,7 @@ open class CDAlertView: UIView {
         popupView.cd_centerHorizontally()
         popupView.cd_centerVertically()
         popupView.cd_setWidth(popupWidth)
-        popupView.cd_setMaxHeight(430)
+        popupView.cd_setMaxHeight(popupHeight)
         popupView.sizeToFit()
         popupView.layoutIfNeeded()
         if actions.count == 0 {
