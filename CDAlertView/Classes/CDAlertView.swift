@@ -207,6 +207,8 @@ open class CDAlertView: UIView {
     
     public var popupHeight: CGFloat = 430.0
     
+    public var titleHeight: CGFloat = 100
+    
     public typealias CDAlertAnimationBlock = ((_ center: inout CGPoint, _ transform: inout CGAffineTransform, _ alpha: inout CGFloat) -> Void)?
 
     fileprivate var popupCenterYPositionBeforeKeyboard: CGFloat?
@@ -634,7 +636,7 @@ open class CDAlertView: UIView {
     private func createTitleLabel() {
         titleLabel.numberOfLines = 0
         titleLabel.textAlignment = .center
-        titleLabel.cd_setMaxHeight(100)
+        titleLabel.cd_setMaxHeight(titleHeight)
         titleLabel.textColor = titleTextColor
         titleLabel.font = titleFont
         contentStackView.addArrangedSubview(titleLabel)
