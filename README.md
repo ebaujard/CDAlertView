@@ -101,6 +101,8 @@ alert.autoHideTime = 4.5 // This will hide alert box after 4.5 seconds
 
 `popupWidth: CGFloat` -> Width of the popup view
 
+`popupHeight: CGFloat` -> Height of the popup view
+
 `hasRoundedCorners: Bool` -> Apply rounded corners to alert view. Default is `true`.
 
 `hasShadow: Bool` -> Apply shadows around the popup. Defualt is `true`.
