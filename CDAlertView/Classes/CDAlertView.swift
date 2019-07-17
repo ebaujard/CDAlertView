@@ -130,8 +130,8 @@ open class CDAlertView: UIView {
             textField.isHidden = isTextFieldHidden
 
             if !isTextFieldHidden {
-                NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-                NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)    
+                NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+                NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
             }
         }
     }
@@ -206,6 +206,8 @@ open class CDAlertView: UIView {
     public var popupWidth: CGFloat = 255.0
     
     public var popupHeight: CGFloat = 430.0
+    
+    public var titleHeight: CGFloat = 100
     
     public typealias CDAlertAnimationBlock = ((_ center: inout CGPoint, _ transform: inout CGAffineTransform, _ alpha: inout CGFloat) -> Void)?
 
@@ -412,7 +414,7 @@ open class CDAlertView: UIView {
         guard let userInfo = notification.userInfo else {
             return
         }
-        guard let keyboardSize = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue else {
+        guard let keyboardSize = (userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue else {
             return
         }
         guard let coverViewWindowCoordinates = coverView.superview?.convert(CGPoint(x: 0, y: coverView.frame.maxY), to: nil) else {
@@ -634,7 +636,7 @@ open class CDAlertView: UIView {
     private func createTitleLabel() {
         titleLabel.numberOfLines = 0
         titleLabel.textAlignment = .center
-        titleLabel.cd_setMaxHeight(100)
+        titleLabel.cd_setMaxHeight(titleHeight)
         titleLabel.textColor = titleTextColor
         titleLabel.font = titleFont
         contentStackView.addArrangedSubview(titleLabel)
