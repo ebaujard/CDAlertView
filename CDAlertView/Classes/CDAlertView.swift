@@ -293,6 +293,24 @@ open class CDAlertView: UIView {
         self.type = type
     }
 
+    public convenience init(title: String?,
+                            message: NSAttributedString?,
+                            type: CDAlertViewType? = nil) {
+        self.init(frame: .zero)
+
+        self.type = type
+        backgroundColor = UIColor(red: 50 / 255, green: 51 / 255, blue: 53 / 255, alpha: 0.4)
+        if let t = title {
+            titleLabel.text = t
+        }
+
+        if let m = message {
+            messageLabel.attributedText = m
+        }
+
+        self.type = type
+    }
+
     override open func layoutSubviews() {
         super.layoutSubviews()
         if hasShadow {
