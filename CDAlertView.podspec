@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name             = 'CDAlertViewJve'
+  s.name             = 'CDAlertView'
   s.version          = '0.12.0'
   s.summary          = 'Highly customizable alert/notification/success/error/alarm popup'
   s.description      = <<-DESC
@@ -15,7 +15,7 @@ CDAlertView is highly customizable alert popup written in Swift 4.2. Usage is si
   s.ios.deployment_target = '10.0'
 
   s.source_files = 'CDAlertView/Classes/**/*'
-  s.swift_version = '4.2'
+  s.swift_version = '4.0'
   s.resource_bundles = {
     'CDAlertView' => ['CDAlertView/Resources/Assets/*.*']
   }
