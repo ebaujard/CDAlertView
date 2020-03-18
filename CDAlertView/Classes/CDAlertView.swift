@@ -94,6 +94,7 @@ open class CDAlertView: UIView {
             messageLabel.font = messageFont
         }
     }
+    private var messageFontByAttributedString: Bool = false
 
     public var textFieldFont: UIFont = UIFont.systemFont(ofSize: 15) {
         didSet {
@@ -306,6 +307,7 @@ open class CDAlertView: UIView {
 
         if let m = message {
             messageLabel.attributedText = m
+            messageFontByAttributedString = true
         }
 
         self.type = type
@@ -665,7 +667,9 @@ open class CDAlertView: UIView {
         messageLabel.textAlignment = .center
         messageLabel.textColor = messageTextColor
         messageLabel.cd_setMaxHeight(290)
-        messageLabel.font = messageFont
+        if messageFontByAttributedString == false {
+            messageLabel.font = messageFont
+        }
         contentStackView.addArrangedSubview(messageLabel)
     }
 
